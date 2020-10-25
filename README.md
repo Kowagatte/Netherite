@@ -1,16 +1,23 @@
-# Fabric Example Mod - Kotlin
+# __Netherite__
 
-## Setup
+### Description:
+```
+Netherite is aimed to be a Vanilla+ mod that brings a large assortment
+of changes to the game. Similar to Vazkii's Quark in design philosophy
+but with more versatile and game-changing features.
+```
 
-0. Create a new mod repository by pressing the "Use this template" button and clone the created repository.
+### _Features_
+List of features can be found [here](https://github.com/Kowagatte/Netherite/wiki/Features)
 
-1. Import build.gradle file with IntelliJ IDEA
+### _Images_
+None yet.
 
-2. Edit build.gradle and mod.json to suit your needs.
-    * The "mixins" object can be removed from mod.json if you do not need to use mixins.
-    * Please replace all occurences of "modid" with your own mod ID - sometimes, a different string may also suffice.
-3. Run!
 
-## License
-
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+### __License__:
+The source code of this mod is covered by the MIT License.
+```
+Disclaimer:
+The Artwork presented in this mod is not all licensed by me,  
+and therefore is not free to be downloaded and used.
+```
