@@ -7,12 +7,11 @@ of changes to the game. Similar to Vazkii's Quark in design philosophy
 but with more versatile and game-changing features.
 ```
 
-### _Features_
-List of features can be found [here](https://github.com/Kowagatte/Netherite/wiki/Features)
+### _Wiki & Features_
+Current Features, Plans and information can be found on the [Wiki](https://github.com/Kowagatte/Netherite/wiki)
 
 ### _Images_
 None yet.
-
 
 ### __License__:
 The source code of this mod is covered by the MIT License.
