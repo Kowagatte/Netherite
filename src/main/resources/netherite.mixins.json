@@ -1,11 +1,12 @@
 {
   "required": true,
-  "package": "net.fabricmc.example.mixin",
+  "package": "ca.damocles.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "MixinCowEntity",
+    "MixinCauldronBlock"
   ],
   "client": [
-    "ExampleMixin"
   ],
   "injectors": {
     "defaultRequire": 1
