@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "facing=down":  { "model": "netherite:block/golden_hopper"                },
+    "facing=north": { "model": "netherite:block/golden_hopper_side"           },
+    "facing=south": { "model": "netherite:block/golden_hopper_side", "y": 180 },
+    "facing=west":  { "model": "netherite:block/golden_hopper_side", "y": 270 },
+    "facing=east":  { "model": "netherite:block/golden_hopper_side", "y": 90  }
+  }
+}
