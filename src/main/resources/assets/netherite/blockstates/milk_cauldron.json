@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "netherite:block/milk_cauldron_level_0"
+    },
+    "level=1": {
+      "model": "netherite:block/milk_cauldron_level_1"
+    }
+  }
+}
