@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "netherite:shrimp"
+    },
+    {
+      "item": "netherite:rice"
+    }
+  ],
+  "result": {
+    "item": "netherite:nigiri",
+    "count": 1
+  }
+}

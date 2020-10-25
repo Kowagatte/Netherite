@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "netherite:dough"
+    },
+    {
+      "item": "netherite:pepperoni"
+    },
+    {
+      "item": "netherite:cheese"
+    },
+    {
+      "item": "netherite:tomato_sauce"
+    }
+  ],
+  "result": {
+    "item": "netherite:pepperoni_pizza",
+    "count": 1
+  }
+}

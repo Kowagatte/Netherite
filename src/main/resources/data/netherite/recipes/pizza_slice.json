@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "netherite:pepperoni_pizza"
+    }
+  ],
+  "result": {
+    "item": "netherite:pizza_slice",
+    "count": 10
+  }
+}

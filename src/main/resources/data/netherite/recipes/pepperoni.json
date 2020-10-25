@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "netherite:sausage"
+  },
+  "result": "netherite:pepperoni",
+  "experience": 0.35,
+  "cookingtime": 100
+}

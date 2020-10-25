@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "netherite:tomato"
+    },
+    {
+      "item": "netherite:garlic"
+    },
+    {
+      "item": "netherite:seed_oil"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "item": "netherite:tomato_sauce",
+    "count": 2
+  }
+}
