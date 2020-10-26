@@ -223,8 +223,9 @@ class GoldenHopperBlockEntity() : LootableContainerBlockEntity(NetheriteRegistry
     }
 
     fun extract(inventory: Inventory, itemEntity: ItemEntity): Boolean {
-        if(inventory.getStack(0).item != itemEntity.stack.item)
+        if(inventory.getStack(0).item != itemEntity.stack.item && !inventory.getStack(0).isEmpty) {
             return false
+        }
 
         var bl = false
         val itemStack = itemEntity.stack.copy()
@@ -240,9 +241,7 @@ class GoldenHopperBlockEntity() : LootableContainerBlockEntity(NetheriteRegistry
 
     fun transfer(from: Inventory?, to: Inventory, stack: ItemStack, side: Direction?): ItemStack {
         var stack = stack
-        //if to is not null this is called. AKA only if it's accepting from another inventory and not space.
-        if (to is SidedInventory && side != null) {
-            println("CASE 1")
+        if (to is SidedInventory) {
             val `is` = to.getAvailableSlots(side)
             var i = 0
             while (i < `is`.size && !stack.isEmpty) {
@@ -250,9 +249,8 @@ class GoldenHopperBlockEntity() : LootableContainerBlockEntity(NetheriteRegistry
                 ++i
             }
         } else {
-            //Called when accepting an item from no associated inventory. aka space.
             val j = to.size()
-            var k = 1
+            var k = 0
             while (k < j && !stack.isEmpty) {
                 stack = transfer(from, to, stack, k, side)
                 ++k
