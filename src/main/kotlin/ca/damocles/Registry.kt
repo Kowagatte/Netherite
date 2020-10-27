@@ -3,11 +3,14 @@ package ca.damocles
 import ca.damocles.common.block.GoldenHopperBlock
 import ca.damocles.common.block.MilkCauldronBlock
 import ca.damocles.common.block.RiceBlock
+import ca.damocles.common.block.UpperBlock
 import ca.damocles.common.block.entity.GoldenHopperBlockEntity
+import ca.damocles.common.block.entity.UpperBlockEntity
 import ca.damocles.common.entity.TomatoEntity
 import ca.damocles.common.item.MilkBottle
 import ca.damocles.common.item.Tomato
 import ca.damocles.common.screenhandler.GoldenHopperBlockScreenHandler
+import ca.damocles.common.screenhandler.UpperBlockScreenHandler
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricEntityTypeBuilder
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry
@@ -39,10 +42,15 @@ object NetheriteRegistry{
         GoldenHopperBlockScreenHandler(int, inventory)
     }
 
+    val UPPER_BLOCK_SCREEN_HANDLER: ScreenHandlerType<UpperBlockScreenHandler> = ScreenHandlerRegistry.registerSimple(getIdentifier("upper")) { int: Int, inventory: PlayerInventory ->
+        UpperBlockScreenHandler(int, inventory)
+    }
+
     /** Properties */
     val LEVEL_1: IntProperty = IntProperty.of("level", 0, 1)
     val HOPPER_FACING: DirectionProperty = DirectionProperty.of("facing") { facing: Direction -> facing != Direction.UP }
     val ENABLED: BooleanProperty = BooleanProperty.of("enabled")
+    val UPPER_FACING: DirectionProperty = DirectionProperty.of("facing") { facing: Direction -> facing != Direction.DOWN }
 
     private fun registerFood(nameSpace: String, hunger: Int, saturation: Float, rarity: Rarity = Rarity.COMMON, statusEffect: Pair<StatusEffectInstance, Float>? = null, alwaysEdible: Boolean = false): Item{
         var foodBuilder = FoodComponent.Builder().hunger(hunger).saturationModifier(saturation)
@@ -69,6 +77,10 @@ object NetheriteRegistry{
             Registry.BLOCK, getIdentifier("golden_hopper"), GoldenHopperBlock(
             AbstractBlock.Settings.copy(Blocks.HOPPER)))
 
+    val UPPER: Block = Registry.register(
+            Registry.BLOCK, getIdentifier("upper"), UpperBlock(
+            AbstractBlock.Settings.copy(Blocks.HOPPER)))
+
     val TEA_FLOWER_BLOCK: Block = Registry.register(
             Registry.BLOCK, getIdentifier("tea_flower"), FlowerBlock(
             StatusEffects.NIGHT_VISION,
@@ -86,14 +98,22 @@ object NetheriteRegistry{
             MilkCauldronBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON)))
 
     /** BLOCK ENTITY */
-    var GOLDEN_HOPPER_BLOCK_ENTITY: BlockEntityType<GoldenHopperBlockEntity> = Registry.register(
+    val GOLDEN_HOPPER_BLOCK_ENTITY: BlockEntityType<GoldenHopperBlockEntity> = Registry.register(
             Registry.BLOCK_ENTITY_TYPE, getIdentifier("golden_hopper"),
             BlockEntityType.Builder.create(Supplier { GoldenHopperBlockEntity() }, GOLDEN_HOPPER).build(null))
+
+    val UPPER_BLOCK_ENTITY: BlockEntityType<UpperBlockEntity> = Registry.register(
+            Registry.BLOCK_ENTITY_TYPE, getIdentifier("upper"),
+            BlockEntityType.Builder.create(Supplier { UpperBlockEntity() }, UPPER).build(null))
 
     /** ITEMS */
     val GOLDEN_HOPPER_ITEM: Item = Registry.register(
             Registry.ITEM, getIdentifier("golden_hopper"), BlockItem(
             GOLDEN_HOPPER, Item.Settings().group(ItemGroup.REDSTONE)))
+
+    val UPPER_ITEM: Item = Registry.register(
+            Registry.ITEM, getIdentifier("upper"), BlockItem(
+            UPPER, Item.Settings().group(ItemGroup.REDSTONE)))
 
     /** SEEDS */
     val TEA_FLOWER_ITEM: Item = Registry.register(

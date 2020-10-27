@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=up": {
+      "model": "netherite:block/upper"
+    },
+    "facing=east": {
+      "model": "netherite:block/upper_side",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "netherite:block/upper_side"
+    },
+    "facing=south": {
+      "model": "netherite:block/upper_side",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "netherite:block/upper_side",
+      "y": 270
+    }
+  }
+}

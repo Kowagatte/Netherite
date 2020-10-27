@@ -28,5 +28,7 @@
   "item.netherite.pizza_slice": "Slice of Pizza",
   "item.netherite.seed_oil": "Seed oil",
   "container.golden_hopper": "Golden Item Hopper",
-  "block.netherite.golden_hopper": "Golden Hopper"
+  "block.netherite.golden_hopper": "Golden Hopper",
+  "container.upper": "Upside Down Item Hopper",
+  "block.netherite.upper": "Upper"
 }
