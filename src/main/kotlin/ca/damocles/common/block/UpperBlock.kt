@@ -4,7 +4,6 @@ import ca.damocles.NetheriteRegistry
 import ca.damocles.common.block.entity.UpperBlockEntity
 import net.minecraft.block.*
 import net.minecraft.block.entity.BlockEntity
-import net.minecraft.block.entity.Hopper
 import net.minecraft.entity.Entity
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.ai.pathing.NavigationType
@@ -29,20 +28,21 @@ class UpperBlock(settings: Settings?) : BlockWithEntity(settings){
     companion object{
         val FACING = NetheriteRegistry.UPPER_FACING
         val ENABLED = NetheriteRegistry.ENABLED
-        val TOP_SHAPE = createCuboidShape(0.0, 10.0, 0.0, 16.0, 16.0, 16.0)
-        val MIDDLE_SHAPE = createCuboidShape(4.0, 4.0, 4.0, 12.0, 10.0, 12.0)
+        val INSIDE_SHAPE = createCuboidShape(2.0, 5.0, 2.0, 14.0, 0.0, 14.0)
+        val TOP_SHAPE = createCuboidShape(0.0, 6.0, 0.0, 16.0, 0.0, 16.0)
+        val MIDDLE_SHAPE = createCuboidShape(4.0, 6.0, 4.0, 12.0, 12.0, 12.0)
         val OUTSIDE_SHAPE = VoxelShapes.union(MIDDLE_SHAPE, TOP_SHAPE)
-        val DEFAULT_SHAPE = VoxelShapes.combineAndSimplify(OUTSIDE_SHAPE, Hopper.INSIDE_SHAPE, BooleanBiFunction.ONLY_FIRST)
-        val UP_SHAPE = VoxelShapes.union(DEFAULT_SHAPE, createCuboidShape(6.0, 0.0, 6.0, 10.0, 4.0, 10.0))
-        val EAST_SHAPE = VoxelShapes.union(DEFAULT_SHAPE, createCuboidShape(12.0, 4.0, 6.0, 16.0, 8.0, 10.0))
-        val NORTH_SHAPE = VoxelShapes.union(DEFAULT_SHAPE, createCuboidShape(6.0, 4.0, 0.0, 10.0, 8.0, 4.0))
-        val SOUTH_SHAPE = VoxelShapes.union(DEFAULT_SHAPE, createCuboidShape(6.0, 4.0, 12.0, 10.0, 8.0, 16.0))
-        val WEST_SHAPE = VoxelShapes.union(DEFAULT_SHAPE, createCuboidShape(0.0, 4.0, 6.0, 4.0, 8.0, 10.0))
-        val UP_RAY_TRACE_SHAPE = Hopper.INSIDE_SHAPE
-        val EAST_RAY_TRACE_SHAPE = VoxelShapes.union(Hopper.INSIDE_SHAPE, createCuboidShape(12.0, 8.0, 6.0, 16.0, 10.0, 10.0))
-        val NORTH_RAY_TRACE_SHAPE = VoxelShapes.union(Hopper.INSIDE_SHAPE, createCuboidShape(6.0, 8.0, 0.0, 10.0, 10.0, 4.0))
-        val SOUTH_RAY_TRACE_SHAPE = VoxelShapes.union(Hopper.INSIDE_SHAPE, createCuboidShape(6.0, 8.0, 12.0, 10.0, 10.0, 16.0))
-        val WEST_RAY_TRACE_SHAPE = VoxelShapes.union(Hopper.INSIDE_SHAPE, createCuboidShape(0.0, 8.0, 6.0, 4.0, 10.0, 10.0))
+        val DEFAULT_SHAPE = VoxelShapes.combineAndSimplify(OUTSIDE_SHAPE, INSIDE_SHAPE, BooleanBiFunction.ONLY_FIRST)
+        val UP_SHAPE = VoxelShapes.union(DEFAULT_SHAPE, createCuboidShape(6.0, 16.0, 6.0, 10.0, 12.0, 10.0))
+        val EAST_SHAPE = VoxelShapes.union(DEFAULT_SHAPE, createCuboidShape(12.0, 12.0, 6.0, 16.0, 8.0, 10.0))
+        val NORTH_SHAPE = VoxelShapes.union(DEFAULT_SHAPE, createCuboidShape(6.0, 12.0, 0.0, 10.0, 8.0, 4.0))
+        val SOUTH_SHAPE = VoxelShapes.union(DEFAULT_SHAPE, createCuboidShape(6.0, 12.0, 12.0, 10.0, 8.0, 16.0))
+        val WEST_SHAPE = VoxelShapes.union(DEFAULT_SHAPE, createCuboidShape(0.0, 12.0, 6.0, 4.0, 8.0, 10.0))
+        val UP_RAY_TRACE_SHAPE = INSIDE_SHAPE
+        val EAST_RAY_TRACE_SHAPE = VoxelShapes.union(INSIDE_SHAPE, createCuboidShape(12.0, 8.0, 6.0, 16.0, 10.0, 10.0))
+        val NORTH_RAY_TRACE_SHAPE = VoxelShapes.union(INSIDE_SHAPE, createCuboidShape(6.0, 8.0, 0.0, 10.0, 10.0, 4.0))
+        val SOUTH_RAY_TRACE_SHAPE = VoxelShapes.union(INSIDE_SHAPE, createCuboidShape(6.0, 8.0, 12.0, 10.0, 10.0, 16.0))
+        val WEST_RAY_TRACE_SHAPE = VoxelShapes.union(INSIDE_SHAPE, createCuboidShape(0.0, 8.0, 6.0, 4.0, 10.0, 10.0))
     }
 
     init{
@@ -67,7 +67,7 @@ class UpperBlock(settings: Settings?) : BlockWithEntity(settings){
             Direction.SOUTH -> SOUTH_RAY_TRACE_SHAPE
             Direction.WEST -> WEST_RAY_TRACE_SHAPE
             Direction.EAST -> EAST_RAY_TRACE_SHAPE
-            else -> Hopper.INSIDE_SHAPE
+            else -> INSIDE_SHAPE
         }
     }
 
