@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "XUX",
+    " X "
+  ],
+  "key": {
+    "U": {
+      "item": "minecraft:chest"
+    },
+    "X": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "netherite:golden_hopper",
+    "count": 1
+  }
+}
