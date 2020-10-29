@@ -4,7 +4,7 @@
 	"textures": {
 		"top": "block/hopper_top",
 		"particle": "block/hopper_outside",
-		"side": "block/hopper_outside",
+		"side": "netherite:block/upper_outside",
 		"inside": "block/hopper_inside"
 	},
 	"elements": [

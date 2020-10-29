@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    "XUX",
+    "X X"
+  ],
+  "key": {
+    "U": {
+      "item": "minecraft:chest"
+    },
+    "X": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "netherite:upper",
+    "count": 1
+  }
+}
