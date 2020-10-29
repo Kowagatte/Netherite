@@ -32,7 +32,7 @@ import java.util.stream.IntStream
 
 abstract class AbstractHopperEntity<A : BlockEntity?>(entityType: BlockEntityType<A>, private val FACING: DirectionProperty, private val ENABLED: BooleanProperty, private val defaultDirection: Direction, size: Int): LootableContainerBlockEntity(entityType), Hopper, Tickable{
 
-    private var inventory: DefaultedList<ItemStack>
+    var inventory: DefaultedList<ItemStack>
     private var transferCooldown: Int
     private var lastTickTime: Long
 
@@ -124,7 +124,7 @@ abstract class AbstractHopperEntity<A : BlockEntity?>(entityType: BlockEntityTyp
         return false
     }
 
-    private fun insert(): Boolean {
+    open fun insert(): Boolean {
         val inventory = getOutputInventory()
         return if (inventory == null) {
             false
@@ -153,7 +153,7 @@ abstract class AbstractHopperEntity<A : BlockEntity?>(entityType: BlockEntityTyp
         return if (inventory is SidedInventory) IntStream.of(*inventory.getAvailableSlots(side)) else IntStream.range(0, inventory.size())
     }
 
-    private fun isInventoryFull(inv: Inventory, direction: Direction): Boolean {
+    fun isInventoryFull(inv: Inventory, direction: Direction): Boolean {
         return getAvailableSlots(inv, direction).allMatch { i: Int ->
             val itemStack = inv.getStack(i)
             itemStack.count >= itemStack.maxCount
@@ -281,7 +281,7 @@ abstract class AbstractHopperEntity<A : BlockEntity?>(entityType: BlockEntityTyp
         return stack
     }
 
-    private fun getOutputInventory(): Inventory? {
+    fun getOutputInventory(): Inventory? {
         val direction = cachedState.get(FACING) as Direction
         return getInventoryAt(getWorld(), pos.offset(direction))
     }
